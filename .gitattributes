@@ -1,0 +1,5 @@
+# Đảm bảo tất cả file text được normalize sang LF trong repo
+* text=auto
+
+# Nhưng với .env.example, ép dùng LF (tránh bị chuyển CRLF)
+.env.example text eol=lf
