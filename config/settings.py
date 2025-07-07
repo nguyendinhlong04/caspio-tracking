@@ -7,7 +7,7 @@ CLIENT_ID       = os.getenv("CLIENT_ID")
 CLIENT_SECRET   = os.getenv("CLIENT_SECRET")
 DEPLOY_URL      = os.getenv("DEPLOY_URL")
 TABLE_NAME      = os.getenv("TABLE_NAME", "DonHang")
-MAX_RECORDS     = int(os.getenv("MAX_RECORDS" or 100))
+MAX_RECORDS     = int(os.getenv("MAX_RECORDS") or 100)
 
 STATUS_MAPPING = {
     "差出人に返送": "Thất bại - Hoàn hàng",
