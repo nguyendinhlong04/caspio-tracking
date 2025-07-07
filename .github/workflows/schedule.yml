@@ -27,4 +27,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run caspio sync
-        run: python src.main
+        run: python -m src.main
