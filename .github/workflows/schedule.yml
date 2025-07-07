@@ -3,7 +3,7 @@ name: Daily Caspio Sync
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '*/1 * * * *'   
+    - cron:  '*/5 * * * *'   
 
 jobs:
   sync:
@@ -13,8 +13,8 @@ jobs:
       CLIENT_ID:     ${{ secrets.CLIENT_ID }}
       CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
       DEPLOY_URL:    ${{ secrets.DEPLOY_URL }}
-      TABLE_NAME:    ${{ secrets.TABLE_NAME }}
-      MAX_RECORDS:   ${{ secrets.MAX_RECORDS }}
+      TABLE_NAME:    ${{ vars.TABLE_NAME }}
+      MAX_RECORDS:   ${{ vars.MAX_RECORDS }}
 
     steps:
       - uses: actions/checkout@v4
