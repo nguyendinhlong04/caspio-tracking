@@ -3,7 +3,7 @@ name: Daily Caspio Sync
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '*/1 * * *'   # 01:00 Asia/Bangkok hằng ngày (UTC+7 = 18h UTC hôm trước)
+    - cron:  '*/1 * * * *'   
 
 jobs:
   sync:
