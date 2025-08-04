@@ -9,12 +9,12 @@ def scrape_japanpost(no: str) -> str:
     )
     r = requests.get(url, timeout=20); r.raise_for_status()
     tbl = re.search(r'<table[^>]*summary="履歴情報"[^>]*>(.*?)</table>', r.text, re.DOTALL)
-    if not tbl: return ""
+    if not tbl: return "Sai mã bưu điện"
     sts = re.findall(r'<td[^>]*class="w_150"[^>]*>(.*?)</td>', tbl.group(1), re.DOTALL)
     clean = [re.sub(r"<[^>]+>", "", s).strip() for s in sts]
     
     if not clean:
-        return ""
+        return "Sai mã bưu điện"
     
     original_status = clean[-1]
     return STATUS_MAPPING.get(original_status, original_status)
