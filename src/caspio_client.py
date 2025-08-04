@@ -27,7 +27,12 @@ def fetch_pending_orders(token: str):
     }
     r = requests.get(url, headers={"Authorization":f"Bearer {token}"}, params=params, timeout=15)
     r.raise_for_status()
-    return r.json().get("Result", [])
+    result = r.json().get("Result", [])
+    
+    # Thêm dòng log này
+    print(f"✅ Fetched {len(result)} pending records from Caspio.")
+    
+    return result
 
 def update_record(token: str, record_id: str, status: str):
     headers = {
