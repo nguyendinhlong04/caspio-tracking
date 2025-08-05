@@ -1,7 +1,6 @@
 import re, html, requests
 from config.settings import STATUS_MAPPING
 
-# Helper function để tránh lặp code
 def _make_request(url, method='get', **kwargs):
     print(f"  🔗 Requesting URL: {url}")
     try:
