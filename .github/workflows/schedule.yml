@@ -3,7 +3,7 @@ name: Daily Caspio Sync
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '*/30 * * * *' 
+    - cron:  '*/20 * * * *' 
 
 concurrency:               
   group: ${{ github.workflow }}
