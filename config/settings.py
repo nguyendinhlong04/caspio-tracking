@@ -22,7 +22,7 @@ STATUS_MAPPING = {
     "配達完了": "Thành công",
     "持ち出し中": "Đang giao",
     "引受": "Đang vận chuyển",
-    "到着": "Lưu kho 2",
+    "到着": "Lưu kho",
     "中継": "Đang vận chuyển",
     "配達希望受付": "Chờ giao",
     "保管": "Lưu kho"
