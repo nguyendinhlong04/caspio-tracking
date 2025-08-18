@@ -15,7 +15,12 @@ def main():
     # In thông tin bảng để debug (có thể bật/tắt nếu cần)
     debug_table_info(token)
 
-    pending_orders = fetch_pending_orders(token)
+    try: # <-- THÊM KHỐI TRY Ở ĐÂY
+        pending_orders = fetch_pending_orders(token)
+    except requests.exceptions.RequestException as e: # <-- BẮT LỖI
+        print(f"❌ CRITICAL: Failed to fetch pending orders from Caspio. Error: {e}")
+        print("🏁 Exiting script.")
+        return
     if not pending_orders:
         print("✅ No pending orders to process. Exiting.")
         return
