@@ -10,7 +10,7 @@ TABLE_NAME      = os.getenv("TABLE_NAME", "DonHang")
 MAX_RECORDS     = int(os.getenv("MAX_RECORDS") or 500)
 
 STATUS_MAPPING = {
-    "差出人に返送": "Thất bại - Hoàn hàng",
+    "差出人に返送": "Hàng quay đầu",
     "差出人に返送済み": "Thất bại - Hoàn hàng",
     "ご不在": "Vắng nhà",
     "ご不在のため持ち戻り": "Vắng nhà",
