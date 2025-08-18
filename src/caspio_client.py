@@ -33,7 +33,7 @@ def fetch_pending_orders(token: str):
         # =============================
         "q.limit": str(MAX_RECORDS)
     }
-    r = requests.get(url, headers={"Authorization": f"Bearer {token}"}, params=params, timeout=15)
+    r = requests.get(url, headers={"Authorization": f"Bearer {token}"}, params=params, timeout=30)
     r.raise_for_status()
     result = r.json().get("Result", [])
     
@@ -58,7 +58,7 @@ def update_record(token: str, record_id: str, status: str):
         params = {
             "q.where": f"ID='{record_id}'"
         }
-        resp = requests.put(url, headers=headers, params=params, json=payload, timeout=10)
+        resp = requests.put(url, headers=headers, params=params, json=payload, timeout=20)
         resp.raise_for_status()
         print(f"  ✅ Successfully updated record ID '{record_id}' with status '{status}'")
         return
@@ -72,7 +72,7 @@ def debug_table_info(token: str):
     
     try:
         url = f"{DEPLOY_URL}/rest/v2/tables/{TABLE_NAME}"
-        resp = requests.get(url, headers={"Authorization": f"Bearer {token}"}, timeout=10)
+        resp = requests.get(url, headers={"Authorization": f"Bearer {token}"}, timeout=20)
         resp.raise_for_status()
         metadata = resp.json()
         print(f"✅ Table metadata retrieved successfully. Table name: {metadata.get('Name', 'Unknown')}")
@@ -88,7 +88,7 @@ def debug_table_info(token: str):
     try:
         url = f"{DEPLOY_URL}/rest/v2/tables/{TABLE_NAME}/records"
         params = {"q.limit": "1", "response": "rows"}
-        resp = requests.get(url, headers={"Authorization": f"Bearer {token}"}, params=params, timeout=10)
+        resp = requests.get(url, headers={"Authorization": f"Bearer {token}"}, params=params, timeout=20)
         resp.raise_for_status()
         sample_data = resp.json()
         
